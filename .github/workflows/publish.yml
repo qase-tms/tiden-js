@@ -1,0 +1,59 @@
+name: Publish
+
+# Lives in the PUBLIC tiden-js repo. Publishes each package when its package.json
+# version differs from what is on npm — so bumping a version in tiden-app, which
+# the mirror syncs here, publishes automatically. No tags to manage.
+#
+# OIDC trusted publishing (no NPM_TOKEN). Because tiden-js is public, npm emits
+# provenance attestations automatically.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # OIDC -> npm trusted publishing (+ provenance on public repos)
+
+concurrency: publish-${{ github.ref }}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    # Disabled until the first manual publish + npm trusted-publisher config is done.
+    # Then set repo variable PUBLISH_ENABLED=true to turn on auto-publish.
+    if: ${{ vars.PUBLISH_ENABLED == 'true' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        pkg: [browser, sourcemaps]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Upgrade npm (OIDC trusted publishing needs >= 11.5.1)
+        run: npm install -g npm@latest
+
+      - name: Build + test
+        working-directory: ${{ matrix.pkg }}
+        run: |
+          npm ci
+          npm run build
+          npm test
+
+      - name: Publish if version changed
+        working-directory: ${{ matrix.pkg }}
+        run: |
+          set -euo pipefail
+          name="$(node -p "require('./package.json').name")"
+          local="$(node -p "require('./package.json').version")"
+          published="$(npm view "${name}@${local}" version 2>/dev/null || true)"
+          if [ -n "${published}" ]; then
+            echo "${name}@${local} already on npm — skipping."
+            exit 0
+          fi
+          echo "Publishing ${name}@${local}"
+          npm publish
