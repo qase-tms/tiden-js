@@ -7,7 +7,7 @@ export { Client } from './client.js'
 let client: Client | undefined
 
 // Tiden is the public singleton API. No third-party error SDK anywhere in the consumer's
-// code: `import { Tiden } from '@tiden/browser'; Tiden.init({ dsn })`.
+// code: `import { Tiden } from '@tiden/telemetry-browser'; Tiden.init({ dsn })`.
 export const Tiden = {
   init(opts: InitOptions): Client {
     client = new Client(opts)

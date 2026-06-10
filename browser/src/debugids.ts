@@ -1,6 +1,6 @@
 import type { DebugImage } from './types.js'
 
-// The @tiden/sourcemaps bundler plugin injects a global record mapping each
+// The @tiden/telemetry-sourcemaps bundler plugin injects a global record mapping each
 // emitted bundle's URL to its debug_id. We read it to populate debug_meta so the
 // server can match source maps. (our own marker name)
 declare global {

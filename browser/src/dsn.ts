@@ -8,7 +8,7 @@ export function parseDsn(dsn: string): ParsedDsn {
   const publicKey = u.username
   const projectId = u.pathname.replace(/^\//, '').split('/')[0] ?? ''
   if (!publicKey || !projectId) {
-    throw new Error('@tiden/browser: invalid DSN (expected http://<key>@host/<projectId>)')
+    throw new Error('@tiden/telemetry-browser: invalid DSN (expected http://<key>@host/<projectId>)')
   }
   const ingestUrl = `${u.protocol}//${u.host}/api/${projectId}/envelope/?tiden_key=${publicKey}`
   return { ingestUrl, publicKey, projectId }

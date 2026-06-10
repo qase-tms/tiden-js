@@ -1,8 +1,8 @@
-# @tiden/browser
+# @tiden/telemetry-browser
 
-[![npm](https://img.shields.io/npm/v/@tiden/browser)](https://www.npmjs.com/package/@tiden/browser)
-[![downloads](https://img.shields.io/npm/dm/@tiden/browser)](https://www.npmjs.com/package/@tiden/browser)
-[![license](https://img.shields.io/npm/l/@tiden/browser)](https://github.com/qase-tms/tiden-js/blob/main/LICENSE)
+[![npm](https://img.shields.io/npm/v/@tiden/telemetry-browser)](https://www.npmjs.com/package/@tiden/telemetry-browser)
+[![downloads](https://img.shields.io/npm/dm/@tiden/telemetry-browser)](https://www.npmjs.com/package/@tiden/telemetry-browser)
+[![license](https://img.shields.io/npm/l/@tiden/telemetry-browser)](https://github.com/qase-tms/tiden-telemetry-js/blob/main/LICENSE)
 
 Error-tracking SDK for browser apps. Automatically captures uncaught exceptions
 and unhandled promise rejections, lets you capture errors and messages manually,
@@ -12,13 +12,13 @@ dependencies**, TypeScript-first, tiny.
 ## Install
 
 ```bash
-npm install @tiden/browser
+npm install @tiden/telemetry-browser
 ```
 
 ## Quick start
 
 ```ts
-import { Tiden } from '@tiden/browser'
+import { Tiden } from '@tiden/telemetry-browser'
 
 Tiden.init({
   dsn: '<your-dsn>',          // from your Tiden project settings
@@ -75,9 +75,9 @@ Tiden.setTag('plan', 'pro')
 ## Readable production stack traces
 
 Minified bundles produce unreadable traces. Pair this with
-[`@tiden/sourcemaps`](https://github.com/qase-tms/tiden-js/tree/main/sourcemaps)
+[`@tiden/telemetry-sourcemaps`](https://github.com/qase-tms/tiden-telemetry-js/tree/main/sourcemaps)
 to upload source maps at build time so traces resolve back to your original code.
 
 ## License
 
-[MIT](https://github.com/qase-tms/tiden-js/blob/main/LICENSE)
+[MIT](https://github.com/qase-tms/tiden-telemetry-js/blob/main/LICENSE)

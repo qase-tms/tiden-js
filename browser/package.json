@@ -1,5 +1,5 @@
 {
-  "name": "@tiden/browser",
+  "name": "@tiden/telemetry-browser",
   "version": "0.1.1",
   "description": "Tiden error-tracking browser SDK. Emits the envelope wire format to a Tiden ingest endpoint, with no third-party error-SDK dependency.",
   "keywords": [
@@ -8,11 +8,11 @@
     "browser",
     "sdk"
   ],
-  "homepage": "https://github.com/qase-tms/tiden-js/tree/main/browser",
-  "bugs": "https://github.com/qase-tms/tiden-js/issues",
+  "homepage": "https://github.com/qase-tms/tiden-telemetry-js/tree/main/browser",
+  "bugs": "https://github.com/qase-tms/tiden-telemetry-js/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qase-tms/tiden-js.git",
+    "url": "git+https://github.com/qase-tms/tiden-telemetry-js.git",
     "directory": "browser"
   },
   "type": "module",

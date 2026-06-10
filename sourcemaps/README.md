@@ -1,8 +1,8 @@
-# @tiden/sourcemaps
+# @tiden/telemetry-sourcemaps
 
-[![npm](https://img.shields.io/npm/v/@tiden/sourcemaps)](https://www.npmjs.com/package/@tiden/sourcemaps)
-[![downloads](https://img.shields.io/npm/dm/@tiden/sourcemaps)](https://www.npmjs.com/package/@tiden/sourcemaps)
-[![license](https://img.shields.io/npm/l/@tiden/sourcemaps)](https://github.com/qase-tms/tiden-js/blob/main/LICENSE)
+[![npm](https://img.shields.io/npm/v/@tiden/telemetry-sourcemaps)](https://www.npmjs.com/package/@tiden/telemetry-sourcemaps)
+[![downloads](https://img.shields.io/npm/dm/@tiden/telemetry-sourcemaps)](https://www.npmjs.com/package/@tiden/telemetry-sourcemaps)
+[![license](https://img.shields.io/npm/l/@tiden/telemetry-sourcemaps)](https://github.com/qase-tms/tiden-telemetry-js/blob/main/LICENSE)
 
 Build-time plugin that uploads your source maps to [Tiden](https://tiden.ai) so
 minified production stack traces resolve back to your original source. Built on
@@ -12,7 +12,7 @@ webpack, Rollup, and esbuild**.
 ## Install
 
 ```bash
-npm install -D @tiden/sourcemaps
+npm install -D @tiden/telemetry-sourcemaps
 ```
 
 ## Usage (Vite)
@@ -20,7 +20,7 @@ npm install -D @tiden/sourcemaps
 ```ts
 // vite.config.ts
 import { defineConfig } from 'vite'
-import { tidenSourceMaps } from '@tiden/sourcemaps'
+import { tidenSourceMaps } from '@tiden/telemetry-sourcemaps'
 
 export default defineConfig({
   build: { sourcemap: true }, // emit .map files for the plugin to process
@@ -40,7 +40,7 @@ export default defineConfig({
 The same factory exports a plugin for each supported bundler:
 
 ```ts
-import { tidenSourceMaps } from '@tiden/sourcemaps'
+import { tidenSourceMaps } from '@tiden/telemetry-sourcemaps'
 
 tidenSourceMaps.vite(options)
 tidenSourceMaps.webpack(options)
@@ -71,4 +71,4 @@ no source maps are ever served to end users.
 
 ## License
 
-[MIT](https://github.com/qase-tms/tiden-js/blob/main/LICENSE)
+[MIT](https://github.com/qase-tms/tiden-telemetry-js/blob/main/LICENSE)
